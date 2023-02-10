@@ -189,3 +189,18 @@ let divs = document.querySelectorAll('divText');
 for(let div of divs) {
   div = div.slice(0, 10) + '...'
 }
+
+
+// Дан инпут. В него вводится число. По потери фокуса 
+// проверьте, что в нем лежит число от 1 до 100. 
+// Если это так - покрасьте инпут в зеленый цвет, 
+// а если не так - в красный.
+let input17 = document.querySelector('.input17');
+
+input17.addEventListener('blur', function(){
+  if (this.value >= 1 && this.value <= 100) {
+    this.style.backgroundColor = "green";
+  } else {
+    this.style.backgroundColor = 'red'
+  }
+})
