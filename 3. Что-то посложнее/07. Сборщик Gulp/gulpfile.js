@@ -4,6 +4,8 @@ const { parallel } = require('gulp');
 let {src, dest} = require('gulp');
 let cleanCSS = require('gulp-clean-css');
 let uglify = require('gulp-uglify');
+let less = require('gulp-less');
+const sass = require('gulp-sass')(require('sass'));
 
 function task(cb) {
   taskDay(cb);
@@ -92,6 +94,20 @@ function taskCleanJS(cb) {
 }
 
 
+// Препроцессоры CSS
+function taskLess(cb) {
+  return src('src/css/style4.less')
+    .pipe(less())
+    .pipe(dest('dist'))
+}
+
+function taskSass(cb) {
+  return src('src/css/style5.sass')
+    .pipe(sass())
+    .pipe(dest('dist'))
+}
+
+
 
 exports.default = task;
 exports.taskD = taskD;
@@ -100,3 +116,5 @@ exports.taskSrc = taskSrc;
 exports.taskSrcArr = taskSrcArr;
 exports.taskCleanCSS = taskCleanCSS;
 exports.taskCleanJS = taskCleanJS;
+exports.taskLess = taskLess;
+exports.taskSass = taskSass;
