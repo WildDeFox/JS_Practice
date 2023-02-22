@@ -6,6 +6,7 @@ let cleanCSS = require('gulp-clean-css');
 let uglify = require('gulp-uglify');
 let less = require('gulp-less');
 const sass = require('gulp-sass')(require('sass'));
+let rename = require('gulp-rename');
 
 function task(cb) {
   taskDay(cb);
@@ -84,12 +85,18 @@ function taskSrcArr(cb) {
 function taskCleanCSS(cb) {
   return src('src/css/style1.css')
     .pipe(cleanCSS())
+    .pipe(rename({
+      extname: '.min.css'
+    }))
     .pipe(dest('dist'))
 }
 
 function taskCleanJS(cb) {
   return src('src/js/script1.js')
     .pipe(uglify())
+    .pipe(rename({
+      extname: '.min.js'
+    }))
     .pipe(dest('dist'))
 }
 
