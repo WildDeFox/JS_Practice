@@ -1,7 +1,9 @@
 let gulp = require('gulp');
 
 function task(cb) {
-  console.log('My first task');
+  taskDay(cb);
+  taskMonth(cb);
+  taskYear(cb);
   cb();
 }
 
@@ -29,7 +31,5 @@ function taskYear(cb) {
   cb();
 }
 
+
 exports.default = task;
-exports.taskDay = taskDay;
-exports.taskMonth = taskMonth;
-exports.taskYear = taskYear;
