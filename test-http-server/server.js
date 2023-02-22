@@ -1,6 +1,5 @@
 export default {
-	'/handler/': function(data) {
-    console.log(data)
-    return 'form data received'
+	'/handler/': function({get}) {
+    return Number(get.input1) + Number(get.input2)
   }
 }
