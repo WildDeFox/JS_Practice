@@ -1,4 +1,6 @@
 let gulp = require('gulp');
+const { series } = require('gulp');
+const { parallel } = require('gulp');
 
 function task(cb) {
   taskDay(cb);
@@ -32,4 +34,32 @@ function taskYear(cb) {
 }
 
 
+// Композиции задач
+// Последовательное выполнение
+function taskD(cb) {
+  series(task1, task2);
+  cb();
+}
+
+function task1(cb) {
+  console.log('task1');
+  cb();
+}
+
+function task2(cb) {
+  console.log('task2');
+  cb();
+}
+
+
+// Параллельное выполнение
+function taskC(cb) {
+  parallel(task1, task2);
+  cb();
+}
+
+
+
 exports.default = task;
+exports.taskD = taskD;
+exports.taskC = taskC;
