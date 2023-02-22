@@ -1,6 +1,7 @@
 let gulp = require('gulp');
 const { series } = require('gulp');
 const { parallel } = require('gulp');
+let {src, dest} = require('gulp');
 
 function task(cb) {
   taskDay(cb);
@@ -59,7 +60,25 @@ function taskC(cb) {
 }
 
 
+function taskSrc(cb) {
+  return src('src/css/style1.css')
+  .pipe(dest('dist'))
+}
+
+function taskSrcArr(cb) {
+  let srcArr = [
+    'src/css/style1.css',
+    'src/css/style2.css',
+    'src/css/style3.css',
+  ];
+
+  return src(srcArr).pipe(dest('dist'))
+}
+
+
 
 exports.default = task;
 exports.taskD = taskD;
 exports.taskC = taskC;
+exports.taskSrc = taskSrc;
+exports.taskSrcArr = taskSrcArr;
