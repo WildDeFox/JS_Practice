@@ -2,6 +2,8 @@ let gulp = require('gulp');
 const { series } = require('gulp');
 const { parallel } = require('gulp');
 let {src, dest} = require('gulp');
+let cleanCSS = require('gulp-clean-css');
+let uglify = require('gulp-uglify');
 
 function task(cb) {
   taskDay(cb);
@@ -76,9 +78,25 @@ function taskSrcArr(cb) {
 }
 
 
+// Минимизация файлов
+function taskCleanCSS(cb) {
+  return src('src/css/style1.css')
+    .pipe(cleanCSS())
+    .pipe(dest('dist'))
+}
+
+function taskCleanJS(cb) {
+  return src('src/js/script1.js')
+    .pipe(uglify())
+    .pipe(dest('dist'))
+}
+
+
 
 exports.default = task;
 exports.taskD = taskD;
 exports.taskC = taskC;
 exports.taskSrc = taskSrc;
 exports.taskSrcArr = taskSrcArr;
+exports.taskCleanCSS = taskCleanCSS;
+exports.taskCleanJS = taskCleanJS;
