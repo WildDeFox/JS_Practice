@@ -1,5 +1,9 @@
 // Сделайте класс Employee.
 class Employee {
+  // Сделайте в вашем классе Employee какой-нибудь тестовый метод. Вызовите его.
+  show() {
+    return '+++'
+  }
 
 }
 
@@ -38,3 +42,5 @@ console.log(employer.salary);
 
 // Выведите на экран сумму зарплат созданных вами работников.
 console.log(employer.salary + emp1.salary + emp2.salary);
+
+console.log(employer.show())
