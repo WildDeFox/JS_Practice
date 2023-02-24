@@ -6,6 +6,16 @@ class Employee {
     return 'Вас зовут: ' + name + ' ваша ЗП в час: ' + salary;
   }
 
+  // Сделайте метод, который выведет на экран имя работника.
+  showName() {
+    console.log(this.name);
+  }
+
+  // Сделайте метод, который выведет на экран зарплату работника.
+  showSalary() {
+    console.log(this.salary)
+  }
+
 }
 
 
@@ -45,3 +55,5 @@ console.log(employer.salary);
 console.log(employer.salary + emp1.salary + emp2.salary);
 
 console.log(employer.show(emp1.name, emp1.salary))
+emp1.showName();
+emp1.showSalary();
