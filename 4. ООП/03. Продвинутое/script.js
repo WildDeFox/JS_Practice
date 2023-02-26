@@ -1,0 +1,22 @@
+class Employee {
+  constructor(name, salary, coeffs) {
+    this.name = name;
+    this.salary = salary;
+    this.coeffs = coeffs;
+  }
+
+  // getTotal() {
+	// 	return this.coeffs.reduce(function(res, coeff) {
+	// 		return res + this.salary * coeff; // Потеря контекста, нужно исп стрелочную функцию
+	// 	}, 0);
+
+  getTotal() {
+    return this.coeffs.reduce((res, coeff) => {
+      return res + this.salary * coeff
+    }, 0)
+  }
+}
+
+let employee = new Employee('john', 1000, [1.1, 1.2, 1.3]);
+let total = employee.getTotal();
+console.log(total)
