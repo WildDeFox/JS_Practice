@@ -19,7 +19,7 @@ class Employee extends User {
 
   setAge(age) {
     if (age > 18 && age < 65) {
-      this.age = age;
+      super.setAge(age)
     } else {
       throw new Error("incorrect age");
     }
@@ -27,6 +27,10 @@ class Employee extends User {
 
   getSalary() {
     return this.salary;
+  }
+
+  getAge() {
+    return this.age
   }
 }
 
@@ -36,3 +40,4 @@ console.log(emp.getName());
 emp.setSalary(20000);
 console.log(emp.getSalary());
 emp.setAge(55);
+console.log(emp.getAge());
